@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+
+        }
+        h1{
+            color: rgb(245, 9, 154);
+            text-align: center;
+        }
+        form{
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Love calculator</h1>
+    <form action="">
+        <label for="">Boy Name:</label>
+        <input type="text" id="name" placeholder="Enter the name">
+        <label for="">Girl Name </label>
+        <input type="text" id="gname" placeholder="Enter the name">
+        <button onclick="cal()">calculatet</button>
+        <p id="res"></p>
+    </form>
+    <script>
+        function cal(){
+            var name =document.getElementById("name").value;
+            var gname =document.getElementById("gname").value;
+            var res= document.getElementById("res");
+            var result=Math.random()*101;
+
+            res.innerHTML = result;
+        }
+    </script>
+</body>
+</html>

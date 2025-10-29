@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>VOTE</h1>
+    <div id="a1">
+    <input type="text" id="name" placeholder="Enter your name ">
+    <input type="number" id="age" placeholder="Enter your age">
+    <button onclick="vote()"> Submit</button>
+    <p id="Result"></p>
+    </div>
+    <script>
+        function vote(){
+            var name= document.getElementById("name").value;
+            var age= document.getElementById("age").value;
+            var result=document.getElementById("Result");
+
+            if(age>18){
+                result.innerHTML="Your are Eligibele";
+            }
+            else{
+                result.innerHTML="You are still a child";
+            }
+        }
+    </script>
+    <style>
+        #a1{
+            padding-left: 100px;
+            padding-top: 100px;
+        }
+        body{
+            background-image: url('https://th-i.thgim.com/public/incoming/qzrfvw/article68170761.ece/alternates/FREE_1200/iStock-2148922406.jpg');
+            background-repeat: no-repeat;
+            background-size: auto; 
+            background-position: auto;
+        }
+        
+    </style>
+</body>
+</html>
