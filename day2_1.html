@@ -3,39 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Love Calculator</title>
     <style>
-        *{
-
-        }
-        h1{
-            color: rgb(245, 9, 154);
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(to right, #ffb6c1, #ffe6f2);
             text-align: center;
-        }
-        form{
-
+            padding-top: 50px;
         }
 
+        h1 {
+            color: rgb(245, 9, 154);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            display: inline-block;
+            padding: 30px 50px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: rgb(245, 9, 154);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: rgb(245, 9, 154);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: deeppink;
+            transform: scale(1.05);
+        }
+
+        #res {
+            font-size: 1.5em;
+            color: rgb(245, 9, 154);
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>Love calculator</h1>
-    <form action="">
-        <label for="">Boy Name:</label>
-        <input type="text" id="name" placeholder="Enter the name">
-        <label for="">Girl Name </label>
-        <input type="text" id="gname" placeholder="Enter the name">
-        <button onclick="cal()">calculatet</button>
-        <p id="res"></p>
-    </form>
-    <script>
-        function cal(){
-            var name =document.getElementById("name").value;
-            var gname =document.getElementById("gname").value;
-            var res= document.getElementById("res");
-            var result=Math.random()*101;
+    <h1> Love Calculator </h1>
+    <form onsubmit="return false;">
+        <label for="name">Boy Name:</label>
+        <input type="text" id="name" placeholder="Enter the name" required>
 
-            res.innerHTML = result;
+        <label for="gname">Girl Name:</label>
+        <input type="text" id="gname" placeholder="Enter the name" required><br>
+
+        <button type="button" onclick="cal()">Calculate </button>
+
+        <p id="res"></p>
+        <p class="message" id="msg"></p>
+    </form>
+
+    <script>
+        function cal() {
+            const name = document.getElementById("name").value.trim();
+            const gname = document.getElementById("gname").value.trim();
+            const res = document.getElementById("res");
+            const msg = document.getElementById("msg");
+
+            if (name === "" || gname === "") {
+                res.innerHTML = "Please enter both names ❤️";
+                msg.innerHTML = "";
+                return;
+            }
+
+            const result = Math.floor(Math.random() * 101);
+            res.innerHTML = `${name} 💞 ${gname} = ${result}% Love`;
+
+            // Fun messages based on score
+            let message = "";
+            if (result < 30) {
+                message = " Maybe just friends...";
+            } else if (result < 60) {
+                message = "There’s a spark, but needs work!";
+            } else if (result < 85) {
+                message = "A lovely pair indeed!";
+            } else {
+                message = " Perfect Match! Made for each other ";
+            }
+
+            msg.innerHTML = message;
         }
     </script>
 </body>
